@@ -22,9 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         manager.createUser(users.username("user").password("user").roles("USER").build());
         manager.createUser(users.username("admin").password("admin").roles("ADMIN").build());
         return manager;
-
     }	
-	
+
     @Override
     protected void configure(HttpSecurity security) throws Exception {
         security.authorizeRequests().anyRequest().fullyAuthenticated().and().httpBasic();
